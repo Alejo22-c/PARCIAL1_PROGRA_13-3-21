@@ -20,6 +20,7 @@ void Ingresar_Empleado();
 void Abrir_Empleado();
 void Modificar_Empleado();
 void Eliminar_Empleado();
+void buscar_codigo();
 
 int main (){
 	Abrir_Empleado();
@@ -28,6 +29,7 @@ int main (){
 	cout<<"\n1. Ingresar Empleado Nuevo"<<endl;
 	cout<<"2. Modificar Empleado"<<endl;
 	cout<<"3. Eliminar Empleado"<<endl;
+	cout<<"4. Buscar empleado"<<endl;
 	cout<<"\n\n Opcion: ";
 	cin>>mn;
 	switch(mn){
@@ -42,6 +44,9 @@ int main (){
 		
 		case 3 :
 			Eliminar_Empleado();
+		break;
+		case 4 :
+			buscar_codigo();
 		break;
 	}	
 	return 0;	
@@ -120,7 +125,7 @@ void Abrir_Empleado(){
 	Empleado empleado;
 	int registro=0;
 	fread ( &empleado, sizeof(Empleado), 1, archivo );
-	cout<<"									PORTAL EMPLEADOS"<<endl;
+	cout<<"							PORTAL EMPLEADOS"<<endl;
 	cout<<"____________________________________________________________________________________________________________"<<endl;
 	cout << "id" <<" | "<< "CODIGO" <<" | "<< "NOMBRES"<<"        "<<"APELLIDOS"<<"  |  "<<"PUESTO"<<"  | "<<"SUELDO BASE (Q)"<<" | "<<"BONIFICACION (Q)"<<" | "<<"SUELDO TOTAL (Q)"<<endl;	
 		do{
@@ -181,8 +186,7 @@ void Ingresar_Empleado(){
 	
 	fclose(archivo);
 	Abrir_Empleado();
-	//buscar_indice();	
-	buscar_codigo();
+	//buscar_indice();
 }
 void Modificar_Empleado(){
 	
